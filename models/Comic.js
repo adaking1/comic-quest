@@ -1,9 +1,9 @@
 const {Model, DataTypes} = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Comic extends Model {};
+class Character extends Model {};
 
-Comic.init(
+Character.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -11,13 +11,22 @@ Comic.init(
             primaryKey: true,
             allowNull: false
         },
-        title: {
+        name: {
             type: DataTypes.STRING,
             allowNull: false
         },
         description: {
             type: DataTypes.STRING
-        }
+        },
+        comic_1: {
+            type: DataTypes.STRING
+        },
+        comic_2: {
+            type: DataTypes.STRING
+        },
+        comic_3: {
+            type: DataTypes.STRING
+        }   
     },
     {
         sequelize,
@@ -28,4 +37,4 @@ Comic.init(
     }
 );
 
-module.exports = Comic;
+module.exports = Character;
