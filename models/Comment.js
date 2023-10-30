@@ -26,6 +26,14 @@ Comment.init(
                 model: 'user',
                 key: 'id'
             }
+        },
+        comic_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: 'comic',
+                key: 'id'
+            }
         }
     },
     {
