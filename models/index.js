@@ -1,4 +1,4 @@
-const Comic = require('./Comic');
+const Comic = require('./Character');
 const Comment = require('./Comment');
 const User = require('./User');
 
