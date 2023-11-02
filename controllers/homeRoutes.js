@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const {Character, Comment, User} = require('../models');
+const withAuth = require('../utils/auth.js');
 
 router.get('/', async (req,res) => {
     try {
@@ -17,7 +18,15 @@ router.get('/', async (req,res) => {
 });
 
 // route to render user's profile
-router.get('/profile', async)
+router.get('/profile', withAuth, async (req,res) => {
+    try {
+        const userData = await User.findByPk(req.session.user_id);
+        
+    }
+    catch (err) {
+        res.status(500).json(err);
+    }
+});
 
 
 module.exports = router;
