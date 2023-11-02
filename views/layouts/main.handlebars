@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Comic Quest</title>
+        {{!-- <link rel="stylesheet" href='/css/style.css' /> --}}
+    {{!-- leaving this out until we get a public folder and have this file --}}
+  </head> 
+
+  <body>
+    <header>
+        <h1>Comic Quest</h1>
+        <nav>
+          <a href="/">Home</a>
+          {{#if loggedIn}}
+          <a href="/profile">Dashboard</a>
+          <button type="button" id="logout-button">Sign Out</button>
+          {{else}}
+          <a href="/login">Profile</a>
+          <a href="/login">Log In</a>
+          {{/if}}
+        </nav>
+    </header>
+    <main>
+        {{{body}}}
+    </main>
+
+  </body>
+
+  {{#if loggedIn}}
+  {{!-- leaving this out until we get a public folder and have this file --}}
+  {{!-- <script src="/js/logout.js"></script> --}}
+  {{/if}}
+</html>
