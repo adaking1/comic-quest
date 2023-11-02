@@ -26,7 +26,7 @@ app.use(session(sess));
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
-// app.use(routes);
+app.use(routes);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
