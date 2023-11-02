@@ -11,9 +11,6 @@ Character.init(
             primaryKey: true,
             allowNull: false
         },
-        image: {
-            type: DataTypes.STRING 
-          },
         name: {
             type: DataTypes.STRING,
             allowNull: false
@@ -36,7 +33,7 @@ Character.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'character'
+        modelName: 'comic'
     }
 );
 
