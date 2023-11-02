@@ -2,6 +2,7 @@ const router = require('express').Router();
 const {Character, Comment, User} = require('../models');
 const withAuth = require('../utils/auth.js');
 
+// homepage that shows three featured characters
 router.get('/', async (req,res) => {
     try {
         const featured = await Character.findAll({
