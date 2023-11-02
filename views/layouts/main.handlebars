@@ -12,7 +12,9 @@
   <body>
     <header>
         <h1>Comic Quest</h1>
-        <nav>
+        <nav> 
+          <input type="text" id="searchBar">
+          <button type="button" id="searchBtn">Search</button>
           <a href="/">Home</a>
           {{#if loggedIn}}
           <a href="/profile">Dashboard</a>
