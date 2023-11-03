@@ -1,4 +1,4 @@
-const Character = require('./Character');
+const Comic = require('./Comic');
 const Comment = require('./Comment');
 const User = require('./User');
 
@@ -10,11 +10,11 @@ Comment.belongsTo(User, {
     foreignKey: 'user_id'
 });
 
-Character.hasMany(Comment, {
+Comic.hasMany(Comment, {
     foreignKey: 'comic_id'
 });
 
-Comment.belongsTo(Character, {
+Comment.belongsTo(Comic, {
     foreignKey: 'comic_id'
 });
 
@@ -24,4 +24,4 @@ Comment.belongsTo(Character, {
 
 
 
-module.exports = {Character, Comment, User};
+module.exports = {Comic, Comment, User};
