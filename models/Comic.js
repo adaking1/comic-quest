@@ -1,9 +1,9 @@
 const {Model, DataTypes} = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Character extends Model {};
+class Comic extends Model {};
 
-Character.init(
+Comic.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -20,24 +20,15 @@ Character.init(
         },
         description: {
             type: DataTypes.STRING
-        },
-        comic_1: {
-            type: DataTypes.STRING
-        },
-        comic_2: {
-            type: DataTypes.STRING
-        },
-        comic_3: {
-            type: DataTypes.STRING
-        }   
+        }
     },
     {
         sequelize,
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'character'
+        modelName: 'comic'
     }
 );
 
-module.exports = Character;
+module.exports = Comic;
