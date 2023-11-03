@@ -11,12 +11,20 @@ Comic.init(
             primaryKey: true,
             allowNull: false
         },
-        image: {
-            type: DataTypes.STRING 
-        },
-        name: {
+        title: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
+          },
+        writer: {
+            type: DataTypes.STRING,
+            allowNull: false,
+          },
+        published_on: {
+            type: DataTypes.DATE,
+            allowNull: false,
+          },
+        filename: {
+            type: DataTypes.STRING 
         },
         description: {
             type: DataTypes.STRING
