@@ -1,17 +1,17 @@
 const router = require('express').Router();
-const {Character, Comment, User} = require('../models');
+const {Comic, Comment, User} = require('../models');
 const withAuth = require('../utils/auth.js');
 
 // homepage that shows three featured characters
 router.get('/', async (req,res) => {
     try {
-        const featured = await Character.findAll({
+        const featured = await Comic.findAll({
             where: {
                 featured: true
             }
         });
-        const featuredCharacter = featured.map((char) => char.get({plain:true}));
-        res.render('homepage', {featuredCharacter});
+        const featuredComic = featured.map((char) => char.get({plain:true}));
+        res.render('homepage', {featuredComic});
     }
     catch (err) {
         res.status(500).json(err);
