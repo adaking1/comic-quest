@@ -71,11 +71,10 @@ const comicData = [
 { 
     title: 'Ant-Man #4',
     writer: 'Al Ewing',
-    published_on: '',
-    comic_id: 9,
+    published_on: 'October 05, 2022',
     filename: 'images/Ant-Man.jpeg',
     description:
-    'Who is the mysterious Ant-Man of the future who the past Ant-Men keep bumping into? Find out here as the Ant-Man of 2549 recruits Hank Pym, Eric O’Grady and Scott Lang to take on a godlike Ultron! Don’t miss this epic anniversary finale as the Ant-Man of past, present and future come together to save the world!',
+    "Who is the mysterious Ant-Man of the future who the past Ant-Men keep bumping into? Find out here as the Ant-Man of 2549 recruits Hank Pym, Eric O’Grady and Scott Lang to take on a godlike Ultron! Don’t miss this epic anniversary finale as the Ant-Man of past, present and future come together to save the world!",
 },
 { 
     title: 'Captain Marvel',
@@ -124,15 +123,15 @@ const comicData = [
 { 
     title: 'Thor #34',
     writer: 'Torunn Gronbekk',
-    published_on: '',
+    published_on: 'May 24, 2023',
     filename: 'images/Thor.jpeg',
     description:
     "THOR, DOCTOR DOOM, and…THANOS?! While Thor races Doctor Doom through time before Doom can tear reality itself asunder in his latest grab for power, they find Thanos at the heart of it all, finally revealing the power struggle that brought Thor's grandfather, Bor, and Thanos to all-out war - the ultimate weapon, hidden away for millennia. But Doom will stop at nothing to control it!",
 },
 { 
     title: 'Doctor Strange #9',
-    writer: 'November 01, 2023',
-    published_on: 'Jed Mackley',
+    writer: 'Jed Mackley',
+    published_on: 'November 01, 2023',
     filename: 'images/Dr.Strange.jpeg',
     description: 
     " With General Strange's endgame in sight, Doctor Strange must confront the man he could have been. But everyone has their own agenda… Can the Vishanti be trusted? Is W.A.N.D. capable of changing for the better, or will they return to their black-ops roots? Which Strange will Clea side with? It all comes to a head as the battle for the soul of Stephen Strange begins!"

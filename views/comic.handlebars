@@ -1,0 +1,35 @@
+<section class="card">
+  <a href="/comic/{{id}}">
+    <h1>{{title}}</h1>
+    {{#with comic.[0]}}
+      <img src="/images/{{comic.filename}}">
+      <p>By, {{comic.writer}}</p>
+      <p>Published: {{comic.published_on}}</p>
+      <p>{{comic.description}}</p>
+    {{/with}}
+  </a>
+</section>
+
+{{#if loggedIn}}
+  {{#if comments.length as |comments|}}
+    {{#each comments}}
+      <div class="comment">
+        <p>{{comment.text}}</p>
+        <p>Posted by: {{user.username}}</p>
+      </div>
+    {{/each}}
+  {{else}}
+    <div class="no-comments">
+      <p>No comments are available.</p>
+    </div>
+  {{/if}}
+  <section>
+    <div>
+      <button class="btn btn-primary" type="submit">Add Comment</button>
+    </div>
+  </section>
+{{else}}
+  <div class="login-message">
+    <p>You must be logged in to view comments.</p>
+  </div>
+{{/if}}
