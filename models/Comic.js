@@ -27,7 +27,10 @@ Comic.init(
             type: DataTypes.STRING 
         },
         description: {
-            type: DataTypes.STRING
+            type: DataTypes.TEXT('long')
+        },
+        featured: {
+            type: DataTypes.BOOLEAN
         }
     },
     {

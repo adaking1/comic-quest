@@ -33,7 +33,7 @@ const commentData = [
         text: "Very cool.",
         user_id: 3,
         comic_id: 1,
-        created_at: new Date(),
+        date_created: new Date(),
         
     },
     {
@@ -54,11 +54,11 @@ const commentData = [
         text: "I'd like to read more content like this.",
         user_id: 2,
         comic_id: 1,
-        created_at: new Date(),
+        date_created: new Date(),
         
     }
 ];
 
-const seedComments = () => Comment.bulkCreate(commentData);
+const seedComments = async () => await Comment.bulkCreate(commentData);
 
 module.exports = seedComments;
