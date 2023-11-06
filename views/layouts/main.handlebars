@@ -6,12 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Comic Quest</title>
         <link rel="stylesheet" href='/css/style.css' />
-    {{!-- leaving this out until we get a public folder and have this file --}}
   </head> 
 
   <body>
     <header>
-        <h1>Comic Quest</h1>
+        <a href="/"><h1>Comic Quest</h1></a>
         <nav> 
           <input type="text" id="searchBar">
           <button type="button" id="searchBtn">Search</button>
@@ -31,6 +30,7 @@
 
   </body>
 
+  <script src="/js/search.js"></script>
   {{#if loggedIn}}
   <script src="/js/logout.js"></script>
   {{/if}}

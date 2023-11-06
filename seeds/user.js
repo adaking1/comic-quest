@@ -10,7 +10,8 @@ const userData =
   {
     "username": "Adam2023",
     "email": "Adam2023@hotmail.com",
-    "password": "Adam2023"
+    "password": "Adam2023",
+    "favorite": "3"
   },
   {
     "username": "Xing2023",

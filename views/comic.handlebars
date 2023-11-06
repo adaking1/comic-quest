@@ -1,13 +1,9 @@
 <section class="card">
-  <a href="/comic/{{id}}">
-    <h1>{{title}}</h1>
-    {{#with comic.[0]}}
-      <img src="/images/{{comic.filename}}">
+    <h1>{{comic.title}}</h1>
+      <img src="/images/{{comic.filename}}" style="max-height: 300px;">
       <p>By, {{comic.writer}}</p>
       <p>Published: {{comic.published_on}}</p>
       <p>{{comic.description}}</p>
-    {{/with}}
-  </a>
 </section>
 
 {{#if loggedIn}}

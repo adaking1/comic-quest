@@ -32,6 +32,13 @@ User.init(
             validate: {
                 len: [8]
             }
+        },
+        favorite: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'comic',
+                key: 'id'
+            }
         }
     },
     {
