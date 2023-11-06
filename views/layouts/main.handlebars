@@ -17,7 +17,7 @@
           <button type="button" id="searchBtn">Search</button>
           <a href="/">Home</a>
           {{#if loggedIn}}
-          <a href="/profile">Dashboard</a>
+          <a href="/profile">Profile</a>
           <button type="button" id="logout-button">Sign Out</button>
           {{else}}
           <a href="/login">Profile</a>
@@ -32,7 +32,6 @@
   </body>
 
   {{#if loggedIn}}
-  {{!-- leaving this out until we get a public folder and have this file --}}
-  {{!-- <script src="/js/logout.js"></script> --}}
+  <script src="/js/logout.js"></script>
   {{/if}}
 </html>
