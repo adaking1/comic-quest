@@ -15,5 +15,14 @@ const searchComic = async (event) => {
     }
 };
 
+const viewComic = (event) => {
+    event.preventDefault();
+    const id = event.target.getAttribute('data-id');
+    document.location.replace(`/api/comic/${id}`);
+};
+
+document.querySelectorAll('.homePost').forEach((post) => {
+    post.addEventListener('click', viewComic);
+});
 
 document.querySelector('#searchBtn').addEventListener('click', searchComic);
