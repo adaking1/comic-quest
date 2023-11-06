@@ -11,7 +11,7 @@ router.get('/', async (req,res) => {
             }
         });
         const featuredComic = featured.map((char) => char.get({plain:true}));
-        res.render('homepage', {featuredComic});
+        res.render('homepage', {featuredComic, loggedIn: req.session.logged_in});
     }
     catch (err) {
         res.status(500).json(err);

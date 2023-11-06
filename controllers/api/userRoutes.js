@@ -6,7 +6,7 @@ router.post('/login', async (req,res) => {
     try {
         const userData = await User.findOne({
             where: {
-                username: req.body.email
+                email: req.body.email
             }
         });
         if (!userData) {
@@ -19,7 +19,7 @@ router.post('/login', async (req,res) => {
             return;
         }
         req.session.save(() => {
-            req.session.user_id = userData.isSoftDeleted;
+            req.session.user_id = userData.id;
             req.session.logged_in = true;
             res.status(200).json({user: userData, message: 'Logged in!'})
         });
@@ -36,10 +36,11 @@ router.post('/', async (req,res) => {
         req.session.save(() => {
             req.session.user_id = newUser.id;
             req.session.logged_in = true;
-            res.status(200).json(newUser, {message: 'You are logged in!'})
+            res.status(200).json({newUser, message: 'Account created'})
         });
+        console.log(newUser);
     }
-    catch {
+    catch (err) {
         res.status(500).json(err);
     }
 });
