@@ -24,9 +24,9 @@ router.get('/profile', withAuth, async (req,res) => {
         const userData = await User.findByPk(req.session.user_id, {
             attributes: {exclude: ['password']}
         });
-        const user = userdata.get({plain:true});
+        const user = userData.get({plain:true});
 
-        res.render('profile', {...user, loggedIn: req.session.logged_in});
+        res.render('profile', {user, loggedIn: req.session.logged_in});
     }
     catch (err) {
         res.status(500).json(err);

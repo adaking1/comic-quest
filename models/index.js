@@ -18,7 +18,13 @@ Comment.belongsTo(Comic, {
     foreignKey: 'comic_id'
 });
 
+User.hasOne(Comic, {
+    foreignKey: 'favorite'
+});
 
+Comic.hasMany(User, {
+    foreignKey: 'favorite'
+});
 
 
 
