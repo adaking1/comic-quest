@@ -13,22 +13,22 @@
         <p>{{comment.text}}</p>
         <p>Posted by: {{comment.user.username}}</p>
         {{#if comment.sameUser}}
+        <label for="updateComment">Enter updated comment</label>
+        <input type="text" id = 'updateCom'>
+        <button class="updateBtn" type="submit" data-commentId="{{comment.id}}">Update Comment</button>
         <button class="delete-comment-btn" type="submit" data-commentId="{{comment.id}}">Delete Comment</button>
         {{/if}}
       </div>
     {{/each}}
     {{/if}}
+  
+{{#if loggedIn}}
   {{#unless comments}}
     <div class="no-comments">
       <p>No comments are available.</p>
     </div>
   {{/unless}}
-{{#if loggedIn}}
   <section id="commentBtns">
-          <label for="updateComment">Enter updated comment</label>
-      <input type="text" id = 'updateCom'>
-      <button class="updateBtn" type="submit">Update Comment</button>
-    </div>
       <input data-id="{{comic.id}}" type="text" id="newComment">
       <button data-id="{{comic.id}}" class="btn btn-primary" type="button" id="addComment">Add Comment</button>
   </section>
