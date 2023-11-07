@@ -45,3 +45,21 @@ nav a {
 #searchBtn {
     margin-right: 5px;
 }
+
+#loginForm {
+    justify-content: center;
+}
+
+.form-group {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+#password-login {
+    margin-right: 30px;
+}
+
+#password-signup {
+    margin-right: 30px;
+}
