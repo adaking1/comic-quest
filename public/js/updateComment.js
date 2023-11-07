@@ -1,25 +1,25 @@
-const { response } = require("express");
 
-async function updateFormHandler(event) {
+const updateCommentBtn = async (event) => {
     event.preventDefault();
+    console.log(event);
+    const updatedCom = document.querySelector('#updateCom').value.trim();
+    const id = event.target.getAttribute('data-commentId');
 
-    const id = window.location.toString().split('/')( window.location.toString().split('/').length - 1);
-
-    const response = await fetch(`/api/comment/${id}`, {
-        method: 'POST',
-        body: JSON.stringify({
-            comment_id: id
-        }),
-        headers: {
-            'Context-Type': 'application/json'
+    if (updatedCom) {
+        const response = await fetch(`/api/comment/${id}`, {
+            method: 'PUT',
+            body: JSON.stringify({text:updatedCom}),
+            headers: ({'Content-Type': 'application/json'})
+        });
+        if (response.ok) {
+            document.location.reload();
         }
-    })
+        else {
+            alert(response.statusText);
+        }
+    }
 };
 
-if(response.ok) {
-    document.location.replace('/');
-} else {
-    alert(response.statusText);
-}
-
-document.querySelector('.updateBtn').addEventListener('click', updateFormHandler);
+if (document.querySelector('.updateBtn')) {
+document.querySelector('.updateBtn').addEventListener('click', updateCommentBtn);
+};
