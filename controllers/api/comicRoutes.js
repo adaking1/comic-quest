@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Comic, Comment } = require('../../models')
+const { Comic, Comment, User } = require('../../models')
 
 
 //Limits to 3 comics to the homepage for featured comics 
@@ -49,6 +49,10 @@ router.get('/:id', async (req, res) => {
         const commentData = await Comment.findAll({
             where: {
                 comic_id: req.params.id
+            },
+            include: {
+                model: User,
+                attributes: ['username']
             }
         });
 
