@@ -2,7 +2,7 @@
 const updateCommentBtn = async (event) => {
     event.preventDefault();
     console.log(event);
-    const updatedCom = document.querySelector('#updateCom').value.trim();
+    const updatedCom = document.querySelector('#updateComment').value.trim();
     const id = event.target.getAttribute('data-commentId');
 
     if (updatedCom) {

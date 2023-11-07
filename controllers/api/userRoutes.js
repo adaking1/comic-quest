@@ -1,12 +1,15 @@
 const router = require('express').Router();
 const {User} = require('../../models');
+const validator = require('validator');
 
 // logs in user
 router.post('/login', async (req,res) => {
+    console.log(validator.normalizeEmail(req.body.email));
+    const serEmail = validator.normalizeEmail(req.body.email);
     try {
         const userData = await User.findOne({
             where: {
-                email: req.body.email
+                email: serEmail
             }
         });
         if (!userData) {

@@ -1,6 +1,7 @@
 const {Model, DataTypes} = require('sequelize');
 const sequelize = require('../config/connection');
 const bcrypt = require('bcrypt');
+const validator = require('validator');
 
 class User extends Model {
     checkPass(pass) {
@@ -45,10 +46,13 @@ User.init(
         hooks: {
             beforeCreate: async (userData) => {
                 userData.password = await bcrypt.hash(userData.password, 12);
+                userData.email = await validator.normalizeEmail(userData.email);
                 return userData;
             },
             beforeUpdate: async (updatedData) => {
-                userData.password = await bcrypt.hash(updatedData.password, 12);
+                updatedData.password = await bcrypt.hash(updatedData.password, 12);
+                updatedData.email = await validator.normalizeEmail(updatedData.email);
+                return updatedData;
             }
         },
         sequelize,
