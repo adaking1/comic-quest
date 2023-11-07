@@ -24,9 +24,14 @@
     <div>
       <button class="btn btn-primary" type="submit">Add Comment</button>
     </div>
+    <div>
+      <button class="delete-comment-btn" type="submit">Delete Comment</button>
+    </div>
   </section>
 {{#unless loggedIn}}
   <div class="login-message">
     <p>You must be logged in to view comments.</p>
   </div>
 {{/unless}}
+
+<script src="/js/deleteComment.js"></script>
