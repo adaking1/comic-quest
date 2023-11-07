@@ -12,6 +12,9 @@
       <div class="comment">
         <p>{{comment.text}}</p>
         <p>Posted by: {{comment.user.username}}</p>
+        {{#if comment.sameUser}}
+        <button class="delete-comment-btn" type="submit" data-commentId="{{comment.id}}">Delete Comment</button>
+        {{/if}}
       </div>
     {{/each}}
     {{/if}}
@@ -20,13 +23,14 @@
       <p>No comments are available.</p>
     </div>
   {{/unless}}
+  {{#if loggedIn}}
   <section>
     
       <input data-id="{{comic.id}}" type="text" id="newComment">
       <button data-id="{{comic.id}}" class="btn btn-primary" type="button" id="addComment">Add Comment</button>
-      <button class="delete-comment-btn" type="submit">Delete Comment</button>
 
   </section>
+  {{/if}}
 {{#unless loggedIn}}
   <div class="login-message">
     <p>You must be logged in to view comments.</p>

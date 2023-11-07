@@ -20,7 +20,7 @@ Comic.init(
             allowNull: false,
           },
         published_on: {
-            type: DataTypes.DATE,
+            type: DataTypes.DATEONLY,
             allowNull: false,
           },
         filename: {

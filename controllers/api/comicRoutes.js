@@ -61,9 +61,17 @@ router.get('/:id', async (req, res) => {
             res.status(404).json({ error: 'Comic not found' });
             return;
         }
+        if (!commentData) {
+            res.json({message: 'No comments'});
+            return
+        }
 
         const comic = dbComicData.get({ plain: true });
         const comments = commentData.map((com) => com.get({plain:true}));
+        comments.forEach((c) => {
+            c.sameUser = c.user_id === req.session.user_id;
+        });
+        console.log(comments);
         res.render('comic', { comic, comments, loggedIn:req.session.logged_in});
     } catch (err) {
         console.error(err);
@@ -71,7 +79,7 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-
+// route to add comment to a comic while logged in
 router.put('/:id', withAuth, async (req,res) => {
     try {
         const comicData = await Comic.findByPk(req.params.id);
