@@ -9,13 +9,13 @@
 
   {{#if loggedIn}}
     {{#each comments as |comment|}}
-      <div class="comment">
+      <div class="comment" data-commentId="{{comment.id}}">
         <p>{{comment.text}}</p>
         <p>Posted by: {{comment.user.username}}</p>
         {{#if comment.sameUser}}
-        <label for="updateComment">Enter updated comment</label>
-        <input type="text" id = 'updateComment'>
-        <button class="updateBtn" type="submit" data-commentId="{{comment.id}}">Update Comment</button>
+        {{!-- <label for="updateComment">Enter updated comment</label>
+        <input type="text" id = 'updateComment'> --}}
+        <button class="updateBtn" type="submit" data-commentId="{{comment.id}}" id="UpdateBtn">Update Comment</button>
         <button class="delete-comment-btn" type="submit" data-commentId="{{comment.id}}">Delete Comment</button>
         {{/if}}
       </div>
