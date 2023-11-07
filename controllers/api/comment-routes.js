@@ -47,16 +47,18 @@ router.post('/', withAuth, async (req, res) => {
 
 router.put('/:id', withAuth, async (req, res) => {
     try {
-        const dbCommentData = await Comment.update({
-            text: req.body.text
-        },
-        {
-            where: {
-                id: req.params.id
+        const dbCommentData = await Comment.update(
+            {
+                text: req.body.text
+            },
+            {
+                where: {
+                    id: req.params.id, 
+                }
             }
-        });
+        );
 
-        if (!dbCommentData[0]) {
+        if (dbCommentData[0] === 0) {
             res.status(404).json({ message: 'No comment found with this id' });
             return;
         }
