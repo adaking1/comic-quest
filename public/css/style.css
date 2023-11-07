@@ -63,3 +63,20 @@ nav a {
 #password-signup {
     margin-right: 30px;
 }
+
+#commentBtns {
+    margin-top: 10px;
+}
+
+.updateBtn {
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+.btn-primary {
+    margin-top: 10px;
+}
+
+.delete-comment-btn {
+    margin-top: 10px;
+}
