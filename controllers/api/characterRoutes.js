@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const { Character } = require('../../models');
-// const axios = require('axios');
 const { Op } = require('sequelize');
 const API_KEY = 'b5086d49712e85d6d7638a6b82309664';
 

@@ -6,26 +6,27 @@
       <p>{{comic.description}}</p>
 </section>
 
-{{#if loggedIn}}
-  {{#if comments.length as |comments|}}
-    {{#each comments}}
+
+  {{#if loggedIn}}
+    {{#each comments as |comment|}}
       <div class="comment">
         <p>{{comment.text}}</p>
-        <p>Posted by: {{user.username}}</p>
+        <p>Posted by: {{comment.user.username}}</p>
       </div>
     {{/each}}
-  {{else}}
+    {{/if}}
+  {{#unless comments}}
     <div class="no-comments">
       <p>No comments are available.</p>
     </div>
-  {{/if}}
+  {{/unless}}
   <section>
     <div>
       <button class="btn btn-primary" type="submit">Add Comment</button>
     </div>
   </section>
-{{else}}
+{{#unless loggedIn}}
   <div class="login-message">
     <p>You must be logged in to view comments.</p>
   </div>
-{{/if}}
+{{/unless}}
