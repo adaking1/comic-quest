@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Comic } = require('../../models')
+const { Comic, Comment } = require('../../models')
 
 
 //Limits to 3 comics to the homepage for featured comics 
@@ -46,6 +46,11 @@ router.post('/', async (req,res) => {
 router.get('/:id', async (req, res) => {
     try {
         const dbComicData = await Comic.findByPk(req.params.id);
+        const commentData = await Comment.findAll({
+            where: {
+                comic_id: req.params.id
+            }
+        });
 
         if (!dbComicData) {
             res.status(404).json({ error: 'Comic not found' });
@@ -53,7 +58,8 @@ router.get('/:id', async (req, res) => {
         }
 
         const comic = dbComicData.get({ plain: true });
-        res.render('comic', { comic });
+        const comments = commentData.map((com) => com.get({plain:true}));
+        res.render('comic', { comic, comments, loggedIn:req.session.logged_in});
     } catch (err) {
         console.error(err);
         res.status(500).json({err});
