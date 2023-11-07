@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const {User} = require('../../models');
 const validator = require('validator');
-
+const withAuth = require('../../utils/auth.js');
 // logs in user
 router.post('/login', async (req,res) => {
     console.log(validator.normalizeEmail(req.body.email));
@@ -57,6 +57,19 @@ router.post('/logout', (req,res) => {
     }
     else {
         res.status(404).end();
+    }
+});
+
+// route to update user's name while logged in
+router.put('/name', withAuth, async (req,res) => {
+    try {
+        const userData = await User.findByPk(req.session.user_id);
+        userData.username = req.body.newName;
+        await userData.save();
+        res.status(200).json({message: 'Name updated!', userData});
+    }
+    catch (err) {
+        res.status(500).json(err);
     }
 });
 

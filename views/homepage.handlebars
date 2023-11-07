@@ -1,6 +1,6 @@
 {{#each featuredComic as |comic|}}
 <div data-id="{{comic.id}}" class="homePost">
-    <img src="images/{{comic.filename}}"style="max-height: 300px" data-id="{{comic.id}}" class="homePost">
+    <img src="images/{{comic.filename}}"style="max-height: 300px" data-id="{{comic.id}}" id="homeImage" class="homePost">
     <h2 data-id="{{comic.id}}" class="homePost">{{comic.title}}</h2>
     <p data-id="{{comic.id}}" class="homePost">By, {{comic.writer}}</p>
     <p data-id="{{comic.id}}" class="homePost">Published: {{comic.published_on}}</p>
