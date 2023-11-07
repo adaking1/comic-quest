@@ -21,10 +21,11 @@
     </div>
   {{/unless}}
   <section>
-    <div>
+    
       <input data-id="{{comic.id}}" type="text" id="newComment">
       <button data-id="{{comic.id}}" class="btn btn-primary" type="button" id="addComment">Add Comment</button>
-    </div>
+      <button class="delete-comment-btn" type="submit">Delete Comment</button>
+
   </section>
 {{#unless loggedIn}}
   <div class="login-message">
@@ -33,3 +34,5 @@
 {{/unless}}
 
 <script src="/js/comment.js"></script>
+
+<script src="/js/deleteComment.js"></script>
