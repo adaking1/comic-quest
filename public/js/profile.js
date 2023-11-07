@@ -23,9 +23,7 @@ const renderUpdateName = (event) => {
 
 const updateName = async (event) => {
     event.preventDefault();
-    console.log(event);
     const newName = document.querySelector('#newName').value.trim();
-    console.log(newName);
     if (newName) {
         const response = await fetch(`/api/users/name`, {
             method: 'PUT',
@@ -54,6 +52,7 @@ const renderUpdateEmail = (event) => {
     updateButton.type = 'button';
     updateButton.id = 'updateEmailButton';
     updateButton.textContent = 'Save';
+    updateButton.addEventListener('click', updateEmail);
     inputElement.type = 'email';
     inputElement.id = 'newEmail';
     emailCard.textContent = 'New Email:'
@@ -62,6 +61,24 @@ const renderUpdateEmail = (event) => {
     userInfo.removeChild(button);
     userInfo.removeChild(nameCard);
     userInfo.removeChild(nameButton);
+};
+
+const updateEmail = async (event) => {
+    event.preventDefault();
+    const newEmail = document.querySelector('#newEmail').value.trim();
+    if (newEmail) {
+        const response = await fetch(`/api/users/email`, {
+            method: 'PUT',
+            body: JSON.stringify({newEmail}),
+            headers: {'Content-Type': 'application/json'}
+        });
+        if (response.ok) {
+            document.location.replace('/profile');
+        }
+        else {
+            alert('Unable to update!');
+        }
+    }
 };
 
 if (document.querySelector('#updateName')) {

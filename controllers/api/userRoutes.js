@@ -73,5 +73,18 @@ router.put('/name', withAuth, async (req,res) => {
     }
 });
 
+// route to update user's email while logged in
+router.put('/email', withAuth, async (req,res) => {
+    try {
+        const userData = await User.findByPk(req.session.user_id);
+        userData.email = req.body.newEmail;
+        await userData.save();
+        res.status(200).json({message: 'Email updated!', userData});
+    }
+    catch (err) {
+        res.status(500).json(err);
+    }
+});
+
 
 module.exports = router;
