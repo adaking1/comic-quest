@@ -22,7 +22,8 @@
   {{/unless}}
   <section>
     <div>
-      <button class="btn btn-primary" type="submit">Add Comment</button>
+      <input data-id="{{comic.id}}" type="text" id="newComment">
+      <button data-id="{{comic.id}}" class="btn btn-primary" type="button" id="addComment">Add Comment</button>
     </div>
   </section>
 {{#unless loggedIn}}
@@ -30,3 +31,5 @@
     <p>You must be logged in to view comments.</p>
   </div>
 {{/unless}}
+
+<script src="/js/comment.js"></script>

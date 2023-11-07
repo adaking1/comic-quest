@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const { Comic, Comment, User } = require('../../models')
+const { Comic, Comment, User } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 
 //Limits to 3 comics to the homepage for featured comics 
@@ -67,6 +68,27 @@ router.get('/:id', async (req, res) => {
     } catch (err) {
         console.error(err);
         res.status(500).json({err});
+    }
+});
+
+
+router.put('/:id', withAuth, async (req,res) => {
+    try {
+        const comicData = await Comic.findByPk(req.params.id);
+        if (!comicData) {
+            res.status(404).json({message: 'No comic found!'});
+            return;
+        }
+        const newComment = await Comment.create({
+            ...req.body,
+            user_id: req.session.user_id,
+            comic_id: req.params.id,
+            date_created: Date.now()
+        });
+        res.status(200).json(newComment);        
+    }
+    catch (err) {
+        res.status(500).json(err);
     }
 });
 
