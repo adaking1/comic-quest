@@ -1,7 +1,65 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: white;
-    text-align: center;
+    background-color: tan;
     color: black;
+    text-align: center;
+    justify-content: center;
 }
 
+h1 {
+    color: black;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+header {
+    background-color: lightblue;
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+nav {
+    background-color: lightblue;
+    color:black;
+    display: flex;
+    align-items: center;
+}
+
+#searchBar {
+    margin-right: 5px;
+    border: 3px solid;
+    background-color: white;
+    color: black;
+
+}
+
+nav a {
+  margin-right: 10px;
+  text-decoration: none;
+  color: black;
+}
+
+#searchBtn {
+    margin-right: 5px;
+}
+
+#loginForm {
+    justify-content: center;
+}
+
+.form-group {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+#password-login {
+    margin-right: 30px;
+}
+
+#password-signup {
+    margin-right: 30px;
+}
