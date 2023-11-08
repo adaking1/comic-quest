@@ -1,10 +1,14 @@
 <section>
     <h2>{{user.username}}'s Profile</h2>
-    <ul>
-        <li>username: {{user.username}}</li>
-        <li>email: {{user.email}}</li>
+    <ul id="userInfo">
+        <li id="nameCard">username: {{user.username}}</li>
+        <button type="button" id="updateName">Update name</button>
+        <li id="emailCard">email: {{user.email}}</li>
+        <button type="button" id="updateEmail">Update Email</button>
         {{#if user.favorite}}
         <li>favorite comic: {{user.favorite}}</li>
         {{/if}}
     </ul>
 </section>
+
+<script src="/js/profile.js"></script>

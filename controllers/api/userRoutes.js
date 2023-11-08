@@ -1,12 +1,15 @@
 const router = require('express').Router();
 const {User} = require('../../models');
-
+const validator = require('validator');
+const withAuth = require('../../utils/auth.js');
 // logs in user
 router.post('/login', async (req,res) => {
+    console.log(validator.normalizeEmail(req.body.email));
+    const serEmail = validator.normalizeEmail(req.body.email);
     try {
         const userData = await User.findOne({
             where: {
-                email: req.body.email
+                email: serEmail
             }
         });
         if (!userData) {
@@ -54,6 +57,32 @@ router.post('/logout', (req,res) => {
     }
     else {
         res.status(404).end();
+    }
+});
+
+// route to update user's name while logged in
+router.put('/name', withAuth, async (req,res) => {
+    try {
+        const userData = await User.findByPk(req.session.user_id);
+        userData.username = req.body.newName;
+        await userData.save();
+        res.status(200).json({message: 'Name updated!', userData});
+    }
+    catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+// route to update user's email while logged in
+router.put('/email', withAuth, async (req,res) => {
+    try {
+        const userData = await User.findByPk(req.session.user_id);
+        userData.email = req.body.newEmail;
+        await userData.save();
+        res.status(200).json({message: 'Email updated!', userData});
+    }
+    catch (err) {
+        res.status(500).json(err);
     }
 });
 

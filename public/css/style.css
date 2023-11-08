@@ -42,6 +42,14 @@ nav a {
   color: black;
 }
 
+.homePost:hover {
+    cursor: pointer;
+}
+
+#homeImage {
+    margin-top: 20px;
+}
+
 #searchBtn {
     margin-right: 5px;
 }
@@ -63,6 +71,10 @@ nav a {
 #password-signup {
     margin-right: 30px;
 }
+#commentsCard {
+    display: flex;
+    flex-direction: column-reverse;
+}
 
 #commentBtns {
     margin-top: 10px;
@@ -80,3 +92,30 @@ nav a {
 .delete-comment-btn {
     margin-top: 10px;
 }
+
+ul {
+    list-style: none;
+}
+
+li {
+    margin: 10px;
+}
+
+@media screen and (max-width: 610px) {
+    header {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 435px) {
+    nav {
+        flex-direction: column;
+    }
+    a {
+        margin: 5px;
+    }
+    #searchBtn {
+        margin: 5px;
+    }
+}
+
