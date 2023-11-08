@@ -42,6 +42,10 @@ nav a {
   color: black;
 }
 
+.homePost:hover {
+    cursor: pointer;
+}
+
 #homeImage {
     margin-top: 20px;
 }
