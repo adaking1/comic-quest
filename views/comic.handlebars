@@ -6,22 +6,6 @@
       <p>{{comic.description}}</p>
 </section>
 
-
-  {{#if loggedIn}}
-    {{#each comments as |comment|}}
-      <div class="comment" data-commentId="{{comment.id}}">
-        <p>{{comment.text}}</p>
-        <p>Posted by: {{comment.user.username}}</p>
-        {{#if comment.sameUser}}
-        {{!-- <label for="updateComment">Enter updated comment</label>
-        <input type="text" id = 'updateComment'> --}}
-        <button class="updateBtn" type="submit" data-commentId="{{comment.id}}" id="UpdateBtn">Update Comment</button>
-        <button class="delete-comment-btn" type="submit" data-commentId="{{comment.id}}">Delete Comment</button>
-        {{/if}}
-      </div>
-    {{/each}}
-    {{/if}}
-  
 {{#if loggedIn}}
   {{#unless comments}}
     <div class="no-comments">
@@ -33,6 +17,20 @@
       <button data-id="{{comic.id}}" class="btn btn-primary" type="button" id="addComment">Add Comment</button>
   </section>
   {{/if}}
+  <div id="commentsCard">
+  {{#if loggedIn}}
+    {{#each comments as |comment|}}
+      <div class="comment" data-commentId="{{comment.id}}">
+        <p>{{comment.text}}</p>
+        <p>Posted by: {{comment.user.username}}</p>
+        {{#if comment.sameUser}}
+        <button class="delete-comment-btn" type="submit" data-commentId="{{comment.id}}">Delete Comment</button>
+        <button class="updateBtn" type="submit" data-commentId="{{comment.id}}">Update Comment</button>
+        {{/if}}
+      </div>
+    {{/each}}
+    {{/if}}
+  </div>
 {{#unless loggedIn}}
   <div class="login-message">
     <p>You must be logged in to view comments.</p>

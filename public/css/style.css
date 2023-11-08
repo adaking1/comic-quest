@@ -67,6 +67,10 @@ nav a {
 #password-signup {
     margin-right: 30px;
 }
+#commentsCard {
+    display: flex;
+    flex-direction: column-reverse;
+}
 
 #commentBtns {
     margin-top: 10px;

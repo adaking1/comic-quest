@@ -24,10 +24,13 @@ const update = (event) => {
     event.preventDefault();
     const updateText = document.createElement('input');
     const updateButton = document.createElement('button');
-    const commentCard = document.querySelector('.comment');
-    const updateBtn = document.querySelector('#updateBtn');
     const id = event.target.getAttribute('data-commentId');
-    
+    let selected;
+    document.querySelectorAll('.comment').forEach((comment) => {
+        if (comment.getAttribute('data-commentId') === id) {
+            selected = comment;
+        }
+    });
 
     updateText.type = 'text';
     updateText.id = 'updateComment';
@@ -35,13 +38,14 @@ const update = (event) => {
     updateButton.textContent = 'Save';
     updateButton.setAttribute('data-commentId', id);
     updateButton.addEventListener('click', updateCommentBtn);
-    commentCard.appendChild(updateText);
-    commentCard.appendChild(updateButton)
-
-    // commentCard.removeChild(updateBtn);
+    
+    selected.appendChild(updateText);
+    selected.appendChild(updateButton);
     
 };
 
 if (document.querySelector('.updateBtn')) {
-document.querySelector('.updateBtn').addEventListener('click', update);
+document.querySelectorAll('.updateBtn').forEach((comment) => {
+    comment.addEventListener('click', update);
+});
 };
